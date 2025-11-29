@@ -39,7 +39,8 @@ function SearchManga(query)
     local mangas = {}
 
     for i, v in ipairs(Page:elements(".grid.grid-cols-2.sm\\:grid-cols-2.md\\:grid-cols-5.gap-3.p-4 > a")) do
-        local manga = { url = v:attribute('href'), name = v:attribute('href') }
+        local pgz = v:element(".block.text-\\[13\\.3px\\].font-bold")
+        local manga = { url = v:attribute('href'), name = pgz:inner_text() }
         mangas[i + 1] = manga
     end
 
