@@ -55,14 +55,15 @@ function MangaChapters(mangaURL)
     Time.sleep(Delay)
 
     local chapters = {}
-
+    local ii = 0
     for _, v in ipairs(Page:elements(".pl-4.pr-2.pb-4.overflow-y-auto.scrollbar-thumb-themecolor.scrollbar-track-transparent.scrollbar-thin.mr-3.max-h-\\[20rem\\].space-y-2\\.5 > a")) do
 -- @string.sub(v:inner_text(), 8, 2)
-        local n = tonumber()       
+        local n = tonumber(ii)  
+        ii = ii + 1
         local elem = Html.parse(v:html())
         local link = v
 
-        local chapter = { url = link:attr("href"), name = link:find("span"):first():text() }
+        local chapter = { url = link:attr("href"), name = link:inner_text():text() }
 
         if n ~= nil then
             chapters[n] = chapter
