@@ -56,10 +56,11 @@ function MangaChapters(mangaURL)
 
     local chapters = {}
 
-    for _, v in ipairs(Page:elements("#chapterlist > ul li")) do
-        local n = tonumber(v:attribute("data-num"))
+    for _, v in ipairs(Page:elements(".pl-4.pr-2.pb-4.overflow-y-auto.scrollbar-thumb-themecolor.scrollbar-track-transparent.scrollbar-thin.mr-3.max-h-\\[20rem\\].space-y-2\\.5 > a")) do
+-- @string.sub(v:inner_text(), 8, 2)
+        local n = tonumber()       
         local elem = Html.parse(v:html())
-        local link = elem:find("a"):first()
+        local link = v
 
         local chapter = { url = link:attr("href"), name = link:find("span"):first():text() }
 
