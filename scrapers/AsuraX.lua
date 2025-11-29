@@ -82,7 +82,7 @@ function ChapterPages(chapterURL)
     Time.sleep(Delay)
 
     local pages = {}
-    for i, v in ipairs(Page:elements("#readerarea p img")) do
+    for i, v in ipairs(Page:elements(".py-8.-mx-5.md\\:mx-0.flex.flex-col.items-center.justify-center > img")) do
         local p = { index = i, url = v:attribute("src") }
         pages[i + 1] = p
     end
